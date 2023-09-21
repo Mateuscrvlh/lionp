@@ -319,6 +319,54 @@ nav.show div.icon-close {
   margin-bottom: 2rem;
 }
 
+/*====  livro ============================ */
+#livro {
+  overflow: hidden;
+}
+
+#livro .container {
+  margin: 0;
+}
+
+#livro .image {
+  position: relative;
+}
+
+#livro .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color);
+  position: absolute;
+  top: -16.8%;
+  left: 16.7%;
+  z-index: 0;
+}
+
+#livro .image img {
+  position: relative;
+  right: 2.93rem;
+}
+
+#livro .image img,
+#livro .image::before {
+  border-radius: 0.25rem;
+}
+
+#livro .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#livro .text h1 {
+  margin-bottom: 1rem;
+}
+
+#livro .text p {
+  margin-bottom: 2rem;
+}
+
 /*====  ABOUT ============================ */
 #about {
   background: white;
@@ -380,6 +428,16 @@ nav.show div.icon-close {
 .card .title {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
+}
+
+.card img {
+  border-radius: 50%; /* Torna a imagem circular */
+  width: 100px; /* Define a largura desejada para a imagem */
+  height: 100px; /* Define a altura desejada para a imagem */
+  object-fit: cover; /* Mantém a proporção e corta a imagem se necessário */
+  margin: 0 auto; /* Centraliza a imagem horizontalmente */
+  border: 0 solid #fff; /* Adiciona uma borda branca ao redor da imagem */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
 }
 
 /*====  TESTIMONIALS ============================ */
@@ -603,7 +661,17 @@ footer .social a:hover {
     margin: 0 auto;
   }
 
+  #livro .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
   #home .image {
+    order: 1;
+  }
+
+  #livro .image {
     order: 1;
   }
 
@@ -613,6 +681,11 @@ footer .social a:hover {
     text-align: left;
   }
 
+  #livro .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
   /* about */
 
   #about .container {

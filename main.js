@@ -59,7 +59,11 @@ scrollReveal.reveal(
   `#home .image, #home .text,
   #about .image, #about .text,
   #services header, #services .card,
-  #testimonials header, #testimonials .testimonials, #methods .card,
+  #orientadores header, #orientadores .card,
+  #ligantes header, #ligantes .card,
+  #testimonials header, #testimonials .testimonials, 
+  #methods .card,  #methods header,
+  #extensao .card,  #extensao header,
   #contact .text, #contact .links,
   footer .brand, footer .social
   `,
@@ -78,29 +82,34 @@ function backToTop() {
 }
 
 /* Menu ativo conforme a seção visível na página */
-const sections = document.querySelectorAll('main section[id]')
 function activateMenuAtCurrentSection() {
-  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4
+  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4;
 
-  for (const section of sections) {
-    const sectionTop = section.offsetTop
-    const sectionHeight = section.offsetHeight
-    const sectionId = section.getAttribute('id')
+  for (const link of document.querySelectorAll('.menu a')) {
+    const targetId = link.getAttribute('href').substring(1); // Remove o '#' do href
+    const section = document.querySelector(`section[id="${targetId}"]`);
 
-    const checkpointStart = checkpoint >= sectionTop
-    const checkpointEnd = checkpoint <= sectionTop + sectionHeight
+    if (!section) {
+      continue; // Ignora links sem destino correspondente
+    }
+
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    const checkpointStart = checkpoint >= sectionTop;
+    const checkpointEnd = checkpoint <= sectionTop + sectionHeight;
 
     if (checkpointStart && checkpointEnd) {
-      document
-        .querySelector('nav ul li a[href*=' + sectionId + ']')
-        .classList.add('active')
+      link.classList.add('active');
     } else {
-      document
-        .querySelector('nav ul li a[href*=' + sectionId + ']')
-        .classList.remove('active')
+      link.classList.remove('active');
     }
   }
 }
+
+// Chame a função quando a página é rolada
+window.addEventListener('scroll', activateMenuAtCurrentSection);
+
 
 /* When Scroll */
 window.addEventListener('scroll', function () {
