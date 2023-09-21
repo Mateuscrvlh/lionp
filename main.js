@@ -61,7 +61,7 @@ scrollReveal.reveal(
   #services header, #services .card,
   #testimonials header, #testimonials .testimonials, #methods .card,
   #contact .text, #contact .links,
-  footer .brand, footer .social, #livro, #extensoes, #pesquisa
+  footer .brand, footer .social
   `,
   { interval: 100 }
 )
