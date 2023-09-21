@@ -430,7 +430,7 @@ nav.show div.icon-close {
   margin-bottom: 0.75rem;
 }
 
-.card img {
+.card .ft{
   border-radius: 50%; /* Torna a imagem circular */
   width: 100px; /* Define a largura desejada para a imagem */
   height: 100px; /* Define a altura desejada para a imagem */
